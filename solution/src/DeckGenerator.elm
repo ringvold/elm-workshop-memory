@@ -1,8 +1,8 @@
-module Solution.DeckGenerator exposing (random, static)
+module DeckGenerator exposing (random, static)
 
+import Model exposing (CardState(..), Deck, Group(..))
 import Random
 import Random.List
-import Solution.Model exposing (CardState(..), Deck, Group(..))
 
 
 random : Random.Generator Deck

@@ -1,11 +1,11 @@
-module Solution.Solution6 exposing (main)
+module Solution6 exposing (main)
 
 import Browser
+import DeckGenerator as DeckGenerator
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
-import Solution.DeckGenerator as DeckGenerator
-import Solution.Model exposing (Card, CardState(..), Deck, GameState(..), Model)
+import Model exposing (Card, CardState(..), Deck, GameState(..), Model)
 
 
 type Msg

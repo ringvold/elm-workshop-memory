@@ -1,4 +1,4 @@
-module Solution.Model exposing (..)
+module Model exposing (Card, CardState(..), Deck, GameState(..), Group(..), Model, Msg(..))
 
 
 type alias Model =

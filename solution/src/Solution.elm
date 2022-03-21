@@ -1,12 +1,12 @@
-module Solution.Solution exposing (main)
+module Solution exposing (main)
 
 import Browser
+import DeckGenerator as DeckGenerator
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
+import Model exposing (Card, CardState(..), Deck, GameState(..), Model, Msg(..))
 import Random
-import Solution.DeckGenerator as DeckGenerator
-import Solution.Model exposing (Card, CardState(..), Deck, GameState(..), Model, Msg(..))
 
 
 viewCard : Card -> Html Msg

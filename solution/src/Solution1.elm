@@ -1,4 +1,4 @@
-module Solution.Solution1 exposing (main)
+module Solution1 exposing (main)
 
 import Html exposing (..)
 

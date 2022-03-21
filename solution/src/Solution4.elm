@@ -1,4 +1,4 @@
-module Solution.Solution4 exposing (main)
+module Solution4 exposing (main)
 
 import Html exposing (..)
 import Html.Attributes exposing (..)
