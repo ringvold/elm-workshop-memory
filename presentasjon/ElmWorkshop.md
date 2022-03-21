@@ -52,7 +52,7 @@
 
 ---
 
-# Du kan ikke gjøre nettverkskall hvor og når du vil
+## Du kan ikke gjøre nettverkskall hvor og når du vil
 
 ^Det er et sterkt skille mellom kode som kan/ikke kan gjøre sideeffekte. Dette komm vi tilbake til når vi skal snakke om Elm-arkitekturen.
 
@@ -1093,8 +1093,10 @@ update msg model =
 
 # Plan for dagen
 
-* Mer om Elm
-* Http-requests
+* Feilhåndtering
+* HTTP-requests
+* JSON-dekoding
+* Elm hos SVV
 
 ---
 
@@ -1319,11 +1321,12 @@ Decode.map2 : (a -> b -> value) -> Decoder a -> Decoder b -> Decoder value
 
 [.column]
 ```elm
--- Person : String -> Int -> Person
 type alias Person =
   { name : String
   , age : Int
   }
+
+-- Person : String -> Int -> Person
 
 map2 : (a -> b -> value) -> Decoder a -> Decoder b -> Decoder value
 
@@ -1381,7 +1384,7 @@ personDecoder =
     Decode.succeed Person
         |> required "name" string
         |> required "age" int
-        |> optional "name" string ""
+        |> optional "phone" string ""
 ```
 
 ^Innebygd decoding-funksjonalitet (som Decode.map2 osv) fungerer bra for veldig enkle datasett.
@@ -1403,7 +1406,7 @@ personDecoder =
     Decode.succeed Person
         |> required "name" string
         |> required "age" int
-        |> optional "name" (maybe string) Nothing
+        |> optional "phone" (maybe string) Nothing
 ```
 
 ---
@@ -1490,7 +1493,7 @@ getPerson =
     }
 ```
 ^Hvis decoding feiler får man Http.BadBody
-
+ 
 ---
 
 # Elm hos SVV
