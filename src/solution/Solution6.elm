@@ -1,10 +1,16 @@
-module Main exposing (main)
+module Solution.Solution6 exposing (main)
 
-import DeckGenerator
+import Browser
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
-import Model exposing (..)
+import Solution.DeckGenerator as DeckGenerator
+import Solution.Model exposing (Card, CardState(..), Deck, GameState(..), Model)
+
+
+type Msg
+    = CardClicked Card
+    | RestartGame
 
 
 viewCard : Card -> Html Msg
@@ -38,8 +44,8 @@ viewCards cards =
     div [ class "cards" ] (List.map viewCard cards)
 
 
-setCard : CardState -> Card -> Deck -> Deck
-setCard state card deck =
+setCardState : CardState -> Card -> Deck -> Deck
+setCardState state card deck =
     List.map
         (\c ->
             if c.id == card.id && c.group == card.group then
@@ -82,7 +88,7 @@ updateCardClick clickedCard game =
                 updatedDeck =
                     deck
                         |> closeUnmatched
-                        |> setCard Open clickedCard
+                        |> setCardState Open clickedCard
             in
             Matching updatedDeck clickedCard
 
@@ -91,11 +97,11 @@ updateCardClick clickedCard game =
                 updatedDeck =
                     if isMatching clickedCard openCard then
                         deck
-                            |> setCard Matched clickedCard
-                            |> setCard Matched openCard
+                            |> setCardState Matched clickedCard
+                            |> setCardState Matched openCard
 
                     else
-                        setCard Open clickedCard deck
+                        setCardState Open clickedCard deck
             in
             if allMatched updatedDeck then
                 GameOver
@@ -119,7 +125,7 @@ update msg model =
 
 init : Model
 init =
-    { game = Choosing GameGenerator.staticDeck }
+    { game = Choosing DeckGenerator.static }
 
 
 view : Model -> Html Msg
@@ -128,7 +134,7 @@ view model =
         Choosing deck ->
             viewCards deck
 
-        Matching deck card ->
+        Matching deck _ ->
             viewCards deck
 
         GameOver ->
@@ -140,9 +146,10 @@ view model =
                 ]
 
 
+main : Program () Model Msg
 main =
-    Html.beginnerProgram
-        { model = init
+    Browser.sandbox
+        { init = init
         , view = view
         , update = update
         }

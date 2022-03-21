@@ -1,4 +1,4 @@
-module Main exposing (main)
+module Solution.Solution5 exposing (main)
 
 import Browser
 import Html exposing (..)
@@ -79,8 +79,8 @@ viewCards cards =
     div [] (List.map viewCard cards)
 
 
-setCard : CardState -> Card -> Card
-setCard state card =
+setCardState : CardState -> Card -> Card
+setCardState state card =
     { card | state = state }
 
 
@@ -92,7 +92,7 @@ update msg model =
                 List.map
                     (\c ->
                         if c.id == clickedCard.id then
-                            setCard Open clickedCard
+                            setCardState Open clickedCard
 
                         else
                             c
@@ -106,6 +106,7 @@ view model =
     viewCards model.cards
 
 
+main : Program () Model Msg
 main =
     Browser.sandbox
         { init = { cards = [ openCard, closedCard, matchedCard ] }
