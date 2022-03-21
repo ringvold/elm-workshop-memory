@@ -1,6 +1,16 @@
-# Elm Workshop
+# Elm
 
-### Dag 1
+![fit, right](./images/elm-logo.png)
+ 
+### *A delightful language*
+### *for reliable webapps*
+
+
+---
+
+### Elm workshop Dag 1
+
+
 
 ---
 
