@@ -1,6 +1,6 @@
 # Fun And Games With Elm And Typed Functional Programming
 
-Instructions are found in the [book](https://ewendel.github.io/elm-workshop/).
+Instructions are found in the [book](https://ringvold.github.io/elm-workshop-memory/).
 
 
 <h2 align="center">Made by</h2>
