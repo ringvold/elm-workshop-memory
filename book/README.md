@@ -26,7 +26,7 @@ Some of these concepts may be unfamiliar and somewhat confusing to begin with, s
 
 1. Install `node` version 12 or newer (which includes `npm`) from [nodejs.org](https://nodejs.org/en/download/current/).
 
-1. Clone the repo (https://github.com/gauteab/elm-workshop-memory) to your computer
+1. Clone the repo (https://github.com/ringvold/elm-workshop-memory) to your computer
 
 1. Run `npm ci` (please make sure to have `npm` version 6 or newer)
 
